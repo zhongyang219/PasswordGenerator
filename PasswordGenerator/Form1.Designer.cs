@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.includeNums = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.specCharacters = new System.Windows.Forms.TextBox();
             this.passwordLengthBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.includeLowercase = new System.Windows.Forms.CheckBox();
@@ -42,58 +43,68 @@
             this.aboutButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.savePasswordButton = new System.Windows.Forms.Button();
+            this.restoreDefault = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // includeNums
             // 
             this.includeNums.AutoSize = true;
-            this.includeNums.Location = new System.Drawing.Point(18, 35);
-            this.includeNums.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.includeNums.Location = new System.Drawing.Point(21, 41);
+            this.includeNums.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.includeNums.Name = "includeNums";
-            this.includeNums.Size = new System.Drawing.Size(108, 28);
+            this.includeNums.Size = new System.Drawing.Size(122, 32);
             this.includeNums.TabIndex = 0;
             this.includeNums.Text = "包含数字";
             this.includeNums.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.restoreDefault);
+            this.groupBox1.Controls.Add(this.specCharacters);
             this.groupBox1.Controls.Add(this.passwordLengthBox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.includeLowercase);
             this.groupBox1.Controls.Add(this.includeCaptial);
             this.groupBox1.Controls.Add(this.includeSpecCharctor);
             this.groupBox1.Controls.Add(this.includeNums);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(14, 14);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(496, 174);
+            this.groupBox1.Size = new System.Drawing.Size(579, 203);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "选项";
             // 
+            // specCharacters
+            // 
+            this.specCharacters.Location = new System.Drawing.Point(194, 88);
+            this.specCharacters.Name = "specCharacters";
+            this.specCharacters.Size = new System.Drawing.Size(205, 35);
+            this.specCharacters.TabIndex = 4;
+            // 
             // passwordLengthBox
             // 
-            this.passwordLengthBox.Location = new System.Drawing.Point(120, 122);
+            this.passwordLengthBox.Location = new System.Drawing.Point(140, 142);
             this.passwordLengthBox.MaxLength = 3;
             this.passwordLengthBox.Name = "passwordLengthBox";
-            this.passwordLengthBox.Size = new System.Drawing.Size(109, 31);
+            this.passwordLengthBox.Size = new System.Drawing.Size(126, 35);
             this.passwordLengthBox.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 126);
+            this.label1.Location = new System.Drawing.Point(16, 147);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 24);
+            this.label1.Size = new System.Drawing.Size(117, 28);
             this.label1.TabIndex = 2;
             this.label1.Text = "密码位数：";
             // 
             // includeLowercase
             // 
             this.includeLowercase.AutoSize = true;
-            this.includeLowercase.Location = new System.Drawing.Point(318, 35);
+            this.includeLowercase.Location = new System.Drawing.Point(371, 41);
             this.includeLowercase.Name = "includeLowercase";
-            this.includeLowercase.Size = new System.Drawing.Size(144, 28);
+            this.includeLowercase.Size = new System.Drawing.Size(164, 32);
             this.includeLowercase.TabIndex = 1;
             this.includeLowercase.Text = "包含小写字母";
             this.includeLowercase.UseVisualStyleBackColor = true;
@@ -101,9 +112,9 @@
             // includeCaptial
             // 
             this.includeCaptial.AutoSize = true;
-            this.includeCaptial.Location = new System.Drawing.Point(150, 35);
+            this.includeCaptial.Location = new System.Drawing.Point(175, 41);
             this.includeCaptial.Name = "includeCaptial";
-            this.includeCaptial.Size = new System.Drawing.Size(144, 28);
+            this.includeCaptial.Size = new System.Drawing.Size(164, 32);
             this.includeCaptial.TabIndex = 1;
             this.includeCaptial.Text = "包含大写字母";
             this.includeCaptial.UseVisualStyleBackColor = true;
@@ -111,19 +122,20 @@
             // includeSpecCharctor
             // 
             this.includeSpecCharctor.AutoSize = true;
-            this.includeSpecCharctor.Location = new System.Drawing.Point(18, 77);
-            this.includeSpecCharctor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.includeSpecCharctor.Location = new System.Drawing.Point(21, 90);
+            this.includeSpecCharctor.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.includeSpecCharctor.Name = "includeSpecCharctor";
-            this.includeSpecCharctor.Size = new System.Drawing.Size(144, 28);
+            this.includeSpecCharctor.Size = new System.Drawing.Size(164, 32);
             this.includeSpecCharctor.TabIndex = 0;
             this.includeSpecCharctor.Text = "包含特殊符号";
             this.includeSpecCharctor.UseVisualStyleBackColor = true;
+            this.includeSpecCharctor.CheckedChanged += new System.EventHandler(this.includeSpecCharctor_CheckedChanged);
             // 
             // GenerateButton
             // 
-            this.GenerateButton.Location = new System.Drawing.Point(166, 208);
+            this.GenerateButton.Location = new System.Drawing.Point(194, 243);
             this.GenerateButton.Name = "GenerateButton";
-            this.GenerateButton.Size = new System.Drawing.Size(190, 41);
+            this.GenerateButton.Size = new System.Drawing.Size(222, 48);
             this.GenerateButton.TabIndex = 2;
             this.GenerateButton.Text = "生成随机密码(&G)";
             this.GenerateButton.UseVisualStyleBackColor = true;
@@ -131,17 +143,17 @@
             // 
             // passwordBox
             // 
-            this.passwordBox.Location = new System.Drawing.Point(72, 267);
+            this.passwordBox.Location = new System.Drawing.Point(84, 311);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.ReadOnly = true;
-            this.passwordBox.Size = new System.Drawing.Size(370, 31);
+            this.passwordBox.Size = new System.Drawing.Size(431, 35);
             this.passwordBox.TabIndex = 3;
             // 
             // CopyButton
             // 
-            this.CopyButton.Location = new System.Drawing.Point(72, 318);
+            this.CopyButton.Location = new System.Drawing.Point(84, 371);
             this.CopyButton.Name = "CopyButton";
-            this.CopyButton.Size = new System.Drawing.Size(158, 41);
+            this.CopyButton.Size = new System.Drawing.Size(184, 48);
             this.CopyButton.TabIndex = 4;
             this.CopyButton.Text = "复制到剪贴板(&C)";
             this.CopyButton.UseVisualStyleBackColor = true;
@@ -149,9 +161,9 @@
             // 
             // aboutButton
             // 
-            this.aboutButton.Location = new System.Drawing.Point(223, 399);
+            this.aboutButton.Location = new System.Drawing.Point(260, 465);
             this.aboutButton.Name = "aboutButton";
-            this.aboutButton.Size = new System.Drawing.Size(131, 41);
+            this.aboutButton.Size = new System.Drawing.Size(153, 48);
             this.aboutButton.TabIndex = 5;
             this.aboutButton.Text = "关于(&A)...";
             this.aboutButton.UseVisualStyleBackColor = true;
@@ -159,9 +171,9 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(367, 399);
+            this.exitButton.Location = new System.Drawing.Point(428, 465);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(131, 41);
+            this.exitButton.Size = new System.Drawing.Size(153, 48);
             this.exitButton.TabIndex = 5;
             this.exitButton.Text = "退出(&X)";
             this.exitButton.UseVisualStyleBackColor = true;
@@ -169,19 +181,29 @@
             // 
             // savePasswordButton
             // 
-            this.savePasswordButton.Location = new System.Drawing.Point(258, 318);
+            this.savePasswordButton.Location = new System.Drawing.Point(301, 371);
             this.savePasswordButton.Name = "savePasswordButton";
-            this.savePasswordButton.Size = new System.Drawing.Size(184, 41);
+            this.savePasswordButton.Size = new System.Drawing.Size(215, 48);
             this.savePasswordButton.TabIndex = 6;
             this.savePasswordButton.Text = "保存密码到文件(&S)";
             this.savePasswordButton.UseVisualStyleBackColor = true;
             this.savePasswordButton.Click += new System.EventHandler(this.savePasswordButton_Click);
             // 
+            // restoreDefault
+            // 
+            this.restoreDefault.Location = new System.Drawing.Point(414, 83);
+            this.restoreDefault.Name = "restoreDefault";
+            this.restoreDefault.Size = new System.Drawing.Size(153, 48);
+            this.restoreDefault.TabIndex = 5;
+            this.restoreDefault.Text = "恢复默认(&D)";
+            this.restoreDefault.UseVisualStyleBackColor = true;
+            this.restoreDefault.Click += new System.EventHandler(this.restoreDefault_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(520, 458);
+            this.ClientSize = new System.Drawing.Size(607, 534);
             this.Controls.Add(this.savePasswordButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.aboutButton);
@@ -193,7 +215,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -222,6 +244,8 @@
         private System.Windows.Forms.Button aboutButton;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button savePasswordButton;
+        private System.Windows.Forms.TextBox specCharacters;
+        private System.Windows.Forms.Button restoreDefault;
     }
 }
 

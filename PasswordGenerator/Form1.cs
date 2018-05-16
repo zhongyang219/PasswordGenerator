@@ -25,7 +25,7 @@ namespace PasswordGenerator
         //私有的字段
         List<CharType> m_optionCheck = new List<CharType>();    //储存生成的密码的字符类型
         Random m_randon = new Random();     //用于生成随机数
-        const string m_specalChar = "~!@#$%^&*()_-+={}[]|\\<>/?";   //特殊字符
+        //string m_specalChar;   //特殊字符
         string m_lastPassword = "";         //上一次保存过的密码
 
         //方法
@@ -39,6 +39,8 @@ namespace PasswordGenerator
             includeLowercase.Checked = Properties.Settings.Default.IncludeLowercase;
             includeSpecCharctor.Checked = Properties.Settings.Default.IncludeSpecCharator;
             passwordLengthBox.Text = Properties.Settings.Default.PasswordLength;
+            specCharacters.Text = Properties.Settings.Default.SpecCharacters;
+
         }
 
         //获取选项复选框的状态
@@ -103,8 +105,8 @@ namespace PasswordGenerator
                         currentChar = Convert.ToChar(m_randon.Next(97, 123));    //随机生成一个小写字母
                         break;
                     case CharType.CK_SPECALCHAR:
-                        int randon = m_randon.Next(m_specalChar.Length);
-                        currentChar = m_specalChar[randon];     //随机生成一个特殊字符
+                        int randon = m_randon.Next(specCharacters.Text.Length);
+                        currentChar = specCharacters.Text[randon];     //随机生成一个特殊字符
                         break;
                 }
                 passwordBox.Text += currentChar;
@@ -162,7 +164,19 @@ namespace PasswordGenerator
             Properties.Settings.Default.IncludeLowercase = includeLowercase.Checked;
             Properties.Settings.Default.IncludeSpecCharator = includeSpecCharctor.Checked;
             Properties.Settings.Default.PasswordLength = passwordLengthBox.Text;
+            Properties.Settings.Default.SpecCharacters = specCharacters.Text;
             Properties.Settings.Default.Save();
+        }
+
+        private void restoreDefault_Click(object sender, EventArgs e)
+        {
+            specCharacters.Text = "~!@#$%^&*()_-+={}[]|\\<>/?";
+        }
+
+        private void includeSpecCharctor_CheckedChanged(object sender, EventArgs e)
+        {
+            specCharacters.Enabled = includeSpecCharctor.Checked;
+            restoreDefault.Enabled = includeSpecCharctor.Checked;
         }
     }
 }

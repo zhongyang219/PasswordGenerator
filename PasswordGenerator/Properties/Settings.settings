@@ -17,5 +17,8 @@
     <Setting Name="PasswordLength" Type="System.String" Scope="User">
       <Value Profile="(Default)">8</Value>
     </Setting>
+    <Setting Name="SpecCharacters" Type="System.String" Scope="User">
+      <Value Profile="(Default)">~!@#$%^&amp;*()_-+={}[]|\\&lt;&gt;/?</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
