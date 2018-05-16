@@ -40,7 +40,9 @@ namespace PasswordGenerator
             includeSpecCharctor.Checked = Properties.Settings.Default.IncludeSpecCharator;
             passwordLengthBox.Text = Properties.Settings.Default.PasswordLength;
             specCharacters.Text = Properties.Settings.Default.SpecCharacters;
-
+            //初始化控件的启用或禁用状态
+            specCharacters.Enabled = includeSpecCharctor.Checked;
+            restoreDefault.Enabled = includeSpecCharctor.Checked;
         }
 
         //获取选项复选框的状态
