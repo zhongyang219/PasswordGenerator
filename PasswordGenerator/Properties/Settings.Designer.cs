@@ -94,5 +94,17 @@ namespace PasswordGenerator.Properties {
                 this["SpecCharacters"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool CharTypeProbEqual {
+            get {
+                return ((bool)(this["CharTypeProbEqual"]));
+            }
+            set {
+                this["CharTypeProbEqual"] = value;
+            }
+        }
     }
 }

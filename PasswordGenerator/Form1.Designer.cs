@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.includeNums = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.restoreDefault = new System.Windows.Forms.Button();
             this.specCharacters = new System.Windows.Forms.TextBox();
             this.passwordLengthBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,7 +44,8 @@
             this.aboutButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.savePasswordButton = new System.Windows.Forms.Button();
-            this.restoreDefault = new System.Windows.Forms.Button();
+            this.charTypeProbEqualButton = new System.Windows.Forms.RadioButton();
+            this.charProbEqualButton = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +62,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.charProbEqualButton);
+            this.groupBox1.Controls.Add(this.charTypeProbEqualButton);
             this.groupBox1.Controls.Add(this.restoreDefault);
             this.groupBox1.Controls.Add(this.specCharacters);
             this.groupBox1.Controls.Add(this.passwordLengthBox);
@@ -70,10 +74,20 @@
             this.groupBox1.Controls.Add(this.includeNums);
             this.groupBox1.Location = new System.Drawing.Point(14, 14);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(579, 203);
+            this.groupBox1.Size = new System.Drawing.Size(579, 271);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "选项";
+            // 
+            // restoreDefault
+            // 
+            this.restoreDefault.Location = new System.Drawing.Point(414, 83);
+            this.restoreDefault.Name = "restoreDefault";
+            this.restoreDefault.Size = new System.Drawing.Size(153, 48);
+            this.restoreDefault.TabIndex = 5;
+            this.restoreDefault.Text = "恢复默认(&D)";
+            this.restoreDefault.UseVisualStyleBackColor = true;
+            this.restoreDefault.Click += new System.EventHandler(this.restoreDefault_Click);
             // 
             // specCharacters
             // 
@@ -133,7 +147,7 @@
             // 
             // GenerateButton
             // 
-            this.GenerateButton.Location = new System.Drawing.Point(194, 243);
+            this.GenerateButton.Location = new System.Drawing.Point(194, 306);
             this.GenerateButton.Name = "GenerateButton";
             this.GenerateButton.Size = new System.Drawing.Size(222, 48);
             this.GenerateButton.TabIndex = 2;
@@ -143,7 +157,7 @@
             // 
             // passwordBox
             // 
-            this.passwordBox.Location = new System.Drawing.Point(84, 311);
+            this.passwordBox.Location = new System.Drawing.Point(84, 372);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.ReadOnly = true;
             this.passwordBox.Size = new System.Drawing.Size(431, 35);
@@ -151,7 +165,7 @@
             // 
             // CopyButton
             // 
-            this.CopyButton.Location = new System.Drawing.Point(84, 371);
+            this.CopyButton.Location = new System.Drawing.Point(84, 432);
             this.CopyButton.Name = "CopyButton";
             this.CopyButton.Size = new System.Drawing.Size(184, 48);
             this.CopyButton.TabIndex = 4;
@@ -161,7 +175,7 @@
             // 
             // aboutButton
             // 
-            this.aboutButton.Location = new System.Drawing.Point(260, 465);
+            this.aboutButton.Location = new System.Drawing.Point(260, 509);
             this.aboutButton.Name = "aboutButton";
             this.aboutButton.Size = new System.Drawing.Size(153, 48);
             this.aboutButton.TabIndex = 5;
@@ -171,7 +185,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(428, 465);
+            this.exitButton.Location = new System.Drawing.Point(428, 509);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(153, 48);
             this.exitButton.TabIndex = 5;
@@ -181,7 +195,7 @@
             // 
             // savePasswordButton
             // 
-            this.savePasswordButton.Location = new System.Drawing.Point(301, 371);
+            this.savePasswordButton.Location = new System.Drawing.Point(301, 432);
             this.savePasswordButton.Name = "savePasswordButton";
             this.savePasswordButton.Size = new System.Drawing.Size(215, 48);
             this.savePasswordButton.TabIndex = 6;
@@ -189,21 +203,33 @@
             this.savePasswordButton.UseVisualStyleBackColor = true;
             this.savePasswordButton.Click += new System.EventHandler(this.savePasswordButton_Click);
             // 
-            // restoreDefault
+            // charTypeProbEqualButton
             // 
-            this.restoreDefault.Location = new System.Drawing.Point(414, 83);
-            this.restoreDefault.Name = "restoreDefault";
-            this.restoreDefault.Size = new System.Drawing.Size(153, 48);
-            this.restoreDefault.TabIndex = 5;
-            this.restoreDefault.Text = "恢复默认(&D)";
-            this.restoreDefault.UseVisualStyleBackColor = true;
-            this.restoreDefault.Click += new System.EventHandler(this.restoreDefault_Click);
+            this.charTypeProbEqualButton.AutoSize = true;
+            this.charTypeProbEqualButton.Location = new System.Drawing.Point(21, 192);
+            this.charTypeProbEqualButton.Name = "charTypeProbEqualButton";
+            this.charTypeProbEqualButton.Size = new System.Drawing.Size(289, 32);
+            this.charTypeProbEqualButton.TabIndex = 6;
+            this.charTypeProbEqualButton.TabStop = true;
+            this.charTypeProbEqualButton.Text = "每一种字符出现的概率均等";
+            this.charTypeProbEqualButton.UseVisualStyleBackColor = true;
+            // 
+            // charProbEqualButton
+            // 
+            this.charProbEqualButton.AutoSize = true;
+            this.charProbEqualButton.Location = new System.Drawing.Point(21, 230);
+            this.charProbEqualButton.Name = "charProbEqualButton";
+            this.charProbEqualButton.Size = new System.Drawing.Size(268, 32);
+            this.charProbEqualButton.TabIndex = 6;
+            this.charProbEqualButton.TabStop = true;
+            this.charProbEqualButton.Text = "每个字符出现的概率均等";
+            this.charProbEqualButton.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(607, 534);
+            this.ClientSize = new System.Drawing.Size(607, 580);
             this.Controls.Add(this.savePasswordButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.aboutButton);
@@ -246,6 +272,8 @@
         private System.Windows.Forms.Button savePasswordButton;
         private System.Windows.Forms.TextBox specCharacters;
         private System.Windows.Forms.Button restoreDefault;
+        private System.Windows.Forms.RadioButton charProbEqualButton;
+        private System.Windows.Forms.RadioButton charTypeProbEqualButton;
     }
 }
 

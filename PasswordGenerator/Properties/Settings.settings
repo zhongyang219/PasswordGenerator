@@ -20,5 +20,8 @@
     <Setting Name="SpecCharacters" Type="System.String" Scope="User">
       <Value Profile="(Default)">~!@#$%^&amp;*()_-+={}[]|\\&lt;&gt;/?</Value>
     </Setting>
+    <Setting Name="CharTypeProbEqual" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

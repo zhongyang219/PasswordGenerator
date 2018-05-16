@@ -40,6 +40,8 @@ namespace PasswordGenerator
             includeSpecCharctor.Checked = Properties.Settings.Default.IncludeSpecCharator;
             passwordLengthBox.Text = Properties.Settings.Default.PasswordLength;
             specCharacters.Text = Properties.Settings.Default.SpecCharacters;
+            charTypeProbEqualButton.Checked = Properties.Settings.Default.CharTypeProbEqual;
+            charProbEqualButton.Checked = !Properties.Settings.Default.CharTypeProbEqual;
             //初始化控件的启用或禁用状态
             specCharacters.Enabled = includeSpecCharctor.Checked;
             restoreDefault.Enabled = includeSpecCharctor.Checked;
@@ -90,28 +92,51 @@ namespace PasswordGenerator
                 return;
             }
 
-            for (int i = 0; i< passwordLength; i++)
+            //选中了“每一种字符出现的概率均等”时
+            if (charTypeProbEqualButton.Checked)
             {
-                int index = m_randon.Next(m_optionCheck.Count);  //随机确定生成哪一种字符
-                CharType charType = m_optionCheck[index];
-                char currentChar = '\0';
-                switch(charType)
+                for (int i = 0; i< passwordLength; i++)
                 {
-                    case CharType.CK_NUMBERS:
-                        currentChar = Convert.ToChar(m_randon.Next(48, 58));    //随机生成一个0~9的数字
-                        break;
-                    case CharType.CK_CAPTIAL:
-                        currentChar = Convert.ToChar(m_randon.Next(65, 91));    //随机生成一个大写字母
-                        break;
-                    case CharType.CK_LOWERCASE:
-                        currentChar = Convert.ToChar(m_randon.Next(97, 123));    //随机生成一个小写字母
-                        break;
-                    case CharType.CK_SPECALCHAR:
-                        int randon = m_randon.Next(specCharacters.Text.Length);
-                        currentChar = specCharacters.Text[randon];     //随机生成一个特殊字符
-                        break;
+                    int index = m_randon.Next(m_optionCheck.Count);  //随机确定生成哪一种字符
+                    CharType charType = m_optionCheck[index];
+                    char currentChar = '\0';
+                    switch(charType)
+                    {
+                        case CharType.CK_NUMBERS:
+                            currentChar = Convert.ToChar(m_randon.Next(48, 58));    //随机生成一个0~9的数字
+                            break;
+                        case CharType.CK_CAPTIAL:
+                            currentChar = Convert.ToChar(m_randon.Next(65, 91));    //随机生成一个大写字母
+                            break;
+                        case CharType.CK_LOWERCASE:
+                            currentChar = Convert.ToChar(m_randon.Next(97, 123));    //随机生成一个小写字母
+                            break;
+                        case CharType.CK_SPECALCHAR:
+                            int randon = m_randon.Next(specCharacters.Text.Length);
+                            currentChar = specCharacters.Text[randon];     //随机生成一个特殊字符
+                            break;
+                    }
+                    passwordBox.Text += currentChar;
                 }
-                passwordBox.Text += currentChar;
+            }
+            //选中了“每个字符出现的概率均等”时
+            else if (charProbEqualButton.Checked)
+            {
+                string characters = "";     //所有可能的字符
+                if (includeNums.Checked)
+                    characters += "0123456789";
+                if (includeCaptial.Checked)
+                    characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                if (includeLowercase.Checked)
+                    characters += "abcdefghijklmnopqrstuvwxyz";
+                if (includeSpecCharctor.Checked)
+                    characters += specCharacters.Text;
+                for (int i = 0; i < passwordLength; i++)
+                {
+                    int index = m_randon.Next(characters.Length);
+                    char currentChar = characters[index];
+                    passwordBox.Text += currentChar;
+                }
             }
         }
 
@@ -167,6 +192,7 @@ namespace PasswordGenerator
             Properties.Settings.Default.IncludeSpecCharator = includeSpecCharctor.Checked;
             Properties.Settings.Default.PasswordLength = passwordLengthBox.Text;
             Properties.Settings.Default.SpecCharacters = specCharacters.Text;
+            Properties.Settings.Default.CharTypeProbEqual = charTypeProbEqualButton.Checked;
             Properties.Settings.Default.Save();
         }
 
