@@ -215,6 +215,7 @@ namespace PasswordGenerator
             Properties.Settings.Default.PasswordLength = passwordLengthBox.Text;
             Properties.Settings.Default.SpecCharacters = specCharacters.Text;
             Properties.Settings.Default.CharTypeProbEqual = charTypeProbEqualButton.Checked;
+            Properties.Settings.Default.GenerateGUID = generateGUID.Checked;
             Properties.Settings.Default.Save();
         }
 
