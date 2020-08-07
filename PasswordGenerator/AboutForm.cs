@@ -18,7 +18,7 @@ namespace PasswordGenerator
             this.labelProductName.Text = AssemblyProduct;
             this.labelVersion.Text = String.Format("版本 {0}", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;
-            this.labelCompileTime.Text = String.Format("最后编译时间: {0}", System.IO.File.GetLastWriteTime(this.GetType().Assembly.Location).ToString());
+            this.labelCompileTime.Text = "最后编译日期: 2020/08/07";
             this.textBoxDescription.Text = AssemblyDescription;
         }
 

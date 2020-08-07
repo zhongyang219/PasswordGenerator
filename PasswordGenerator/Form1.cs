@@ -42,9 +42,9 @@ namespace PasswordGenerator
             specCharacters.Text = Properties.Settings.Default.SpecCharacters;
             charTypeProbEqualButton.Checked = Properties.Settings.Default.CharTypeProbEqual;
             charProbEqualButton.Checked = !Properties.Settings.Default.CharTypeProbEqual;
+            generateGUID.Checked = Properties.Settings.Default.GenerateGUID;
             //初始化控件的启用或禁用状态
-            specCharacters.Enabled = includeSpecCharctor.Checked;
-            restoreDefault.Enabled = includeSpecCharctor.Checked;
+            SetControlEnableState();
         }
 
         //获取选项复选框的状态
@@ -61,8 +61,30 @@ namespace PasswordGenerator
                 m_optionCheck.Add(CharType.CK_SPECALCHAR);
         }
 
+        private void SetControlEnableState()
+        {
+            specCharacters.Enabled = includeSpecCharctor.Checked && !generateGUID.Checked;
+            restoreDefault.Enabled = includeSpecCharctor.Checked && !generateGUID.Checked;
+
+            includeNums.Enabled = !generateGUID.Checked;
+            includeCaptial.Enabled = !generateGUID.Checked;
+            includeLowercase.Enabled = !generateGUID.Checked;
+            includeSpecCharctor.Enabled = !generateGUID.Checked;
+            label1.Enabled = !generateGUID.Checked;
+            passwordLengthBox.Enabled = !generateGUID.Checked;
+            charTypeProbEqualButton.Enabled = !generateGUID.Checked;
+            charProbEqualButton.Enabled = !generateGUID.Checked;
+        }
+
         private void GenerateButton_Click(object sender, EventArgs e)
         {
+            if (generateGUID.Checked)
+            {
+                string newGuid = Guid.NewGuid().ToString();
+                passwordBox.Text = newGuid;
+                return;
+            }
+
             GetOptionState();
             passwordBox.Text = "";
             if (passwordLengthBox.Text.Length == 0)      //如果密码长度文本框没有输入字符
@@ -203,8 +225,12 @@ namespace PasswordGenerator
 
         private void includeSpecCharctor_CheckedChanged(object sender, EventArgs e)
         {
-            specCharacters.Enabled = includeSpecCharctor.Checked;
-            restoreDefault.Enabled = includeSpecCharctor.Checked;
+            SetControlEnableState();
+        }
+
+        private void generateGUID_CheckedChanged(object sender, EventArgs e)
+        {
+            SetControlEnableState();
         }
     }
 }

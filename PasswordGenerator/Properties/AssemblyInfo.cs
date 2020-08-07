@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("随机密码生成器")]
 [assembly: AssemblyDescription("这是一款用于生成随机密码的程序。")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("DS by ZhongYang")]
+[assembly: AssemblyCompany("By ZhongYang")]
 [assembly: AssemblyProduct("PasswordGenerator")]
-[assembly: AssemblyCopyright("Copyright © DS by ZhongYang 2017")]
+[assembly: AssemblyCopyright("Copyright © By ZhongYang 2017-2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 //可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值，
 // 方法是按如下所示使用“*”: :
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.1.0")]
-[assembly: AssemblyFileVersion("1.0.1.0")]
+[assembly: AssemblyVersion("1.0.2.0")]
+[assembly: AssemblyFileVersion("1.0.2.0")]
