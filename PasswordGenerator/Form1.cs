@@ -78,6 +78,7 @@ namespace PasswordGenerator
 
         private void GenerateButton_Click(object sender, EventArgs e)
         {
+            CopyButton.Text = "复制到剪贴板(&C)";
             if (generateGUID.Checked)
             {
                 string newGuid = Guid.NewGuid().ToString();
@@ -168,7 +169,8 @@ namespace PasswordGenerator
             {
                 passwordBox.SelectAll();
                 passwordBox.Copy();
-                MessageBox.Show("密码已复制到剪贴板。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("密码已复制到剪贴板。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CopyButton.Text="已复制 √";
             }
         }
 
