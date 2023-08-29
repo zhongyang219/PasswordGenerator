@@ -82,7 +82,7 @@ namespace PasswordGenerator
             charProbEqualButton.Enabled = !generateGUID.Checked;
         }
 
-        private void GenerateButton_Click(object sender, EventArgs e)
+        public void GenerateButton_Click(object sender, EventArgs e)
         {
             if (generateGUID.Checked)
             {
@@ -168,7 +168,7 @@ namespace PasswordGenerator
             }
         }
 
-        private void CopyButton_Click(object sender, EventArgs e)
+        public void CopyButton_Click(object sender, EventArgs e)
         {
             if(passwordBox.TextLength > 0)
             {
@@ -184,7 +184,7 @@ namespace PasswordGenerator
                 GenerateButton_Click(new object(), new EventArgs());
         }
 
-        private void aboutButton_Click(object sender, EventArgs e)
+        public void aboutButton_Click(object sender, EventArgs e)
         {
             //弹出“关于”对话框
             (new AboutForm()).ShowDialog();
@@ -196,7 +196,7 @@ namespace PasswordGenerator
             Close();
         }
 
-        private void savePasswordButton_Click(object sender, EventArgs e)
+        public void savePasswordButton_Click(object sender, EventArgs e)
         {
             //保存当前生成的密码到log文件
             if(passwordBox.TextLength > 0 && passwordBox.Text != m_lastPassword)    //仅当已生成密码且当前生成的密码和之前保存的密码不同才保存密码
@@ -238,15 +238,6 @@ namespace PasswordGenerator
         private void generateGUID_CheckedChanged(object sender, EventArgs e)
         {
             SetControlEnableState();
-        }
-
-        public void onFrameCommand(String cmd, bool isChecked)
-        {
-            if (cmd == "PasswordGeneratorAbout")
-            {
-                //弹出“关于”对话框
-                (new AboutForm()).ShowDialog();
-            }
         }
 
         public IntPtr GetHandle()
