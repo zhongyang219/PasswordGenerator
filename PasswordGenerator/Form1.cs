@@ -244,5 +244,10 @@ namespace PasswordGenerator
         {
             return Handle;
         }
+
+        public void SetPasswordLenght(int passwordLength)
+        {
+            passwordLengthBox.Text = passwordLength.ToString();
+        }
     }
 }
