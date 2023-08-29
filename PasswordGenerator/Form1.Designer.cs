@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.includeNums = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.generateGUID = new System.Windows.Forms.CheckBox();
             this.charProbEqualButton = new System.Windows.Forms.RadioButton();
             this.charTypeProbEqualButton = new System.Windows.Forms.RadioButton();
             this.restoreDefault = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.aboutButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.savePasswordButton = new System.Windows.Forms.Button();
-            this.generateGUID = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,19 +75,30 @@
             this.groupBox1.Controls.Add(this.includeSpecCharctor);
             this.groupBox1.Controls.Add(this.includeNums);
             this.groupBox1.Location = new System.Drawing.Point(10, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(414, 226);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "选项";
             // 
+            // generateGUID
+            // 
+            this.generateGUID.AutoSize = true;
+            this.generateGUID.Location = new System.Drawing.Point(15, 193);
+            this.generateGUID.Name = "generateGUID";
+            this.generateGUID.Size = new System.Drawing.Size(98, 24);
+            this.generateGUID.TabIndex = 7;
+            this.generateGUID.Text = "生成GUID";
+            this.generateGUID.UseVisualStyleBackColor = true;
+            this.generateGUID.CheckedChanged += new System.EventHandler(this.generateGUID_CheckedChanged);
+            // 
             // charProbEqualButton
             // 
             this.charProbEqualButton.AutoSize = true;
             this.charProbEqualButton.Location = new System.Drawing.Point(15, 164);
-            this.charProbEqualButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.charProbEqualButton.Margin = new System.Windows.Forms.Padding(2);
             this.charProbEqualButton.Name = "charProbEqualButton";
             this.charProbEqualButton.Size = new System.Drawing.Size(195, 24);
             this.charProbEqualButton.TabIndex = 6;
@@ -99,7 +110,7 @@
             // 
             this.charTypeProbEqualButton.AutoSize = true;
             this.charTypeProbEqualButton.Location = new System.Drawing.Point(15, 137);
-            this.charTypeProbEqualButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.charTypeProbEqualButton.Margin = new System.Windows.Forms.Padding(2);
             this.charTypeProbEqualButton.Name = "charTypeProbEqualButton";
             this.charTypeProbEqualButton.Size = new System.Drawing.Size(210, 24);
             this.charTypeProbEqualButton.TabIndex = 6;
@@ -110,7 +121,7 @@
             // restoreDefault
             // 
             this.restoreDefault.Location = new System.Drawing.Point(296, 59);
-            this.restoreDefault.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.restoreDefault.Margin = new System.Windows.Forms.Padding(2);
             this.restoreDefault.Name = "restoreDefault";
             this.restoreDefault.Size = new System.Drawing.Size(109, 34);
             this.restoreDefault.TabIndex = 5;
@@ -121,7 +132,7 @@
             // specCharacters
             // 
             this.specCharacters.Location = new System.Drawing.Point(139, 63);
-            this.specCharacters.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.specCharacters.Margin = new System.Windows.Forms.Padding(2);
             this.specCharacters.Name = "specCharacters";
             this.specCharacters.Size = new System.Drawing.Size(148, 27);
             this.specCharacters.TabIndex = 4;
@@ -129,7 +140,7 @@
             // passwordLengthBox
             // 
             this.passwordLengthBox.Location = new System.Drawing.Point(100, 101);
-            this.passwordLengthBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.passwordLengthBox.Margin = new System.Windows.Forms.Padding(2);
             this.passwordLengthBox.MaxLength = 3;
             this.passwordLengthBox.Name = "passwordLengthBox";
             this.passwordLengthBox.Size = new System.Drawing.Size(91, 27);
@@ -149,7 +160,7 @@
             // 
             this.includeLowercase.AutoSize = true;
             this.includeLowercase.Location = new System.Drawing.Point(265, 29);
-            this.includeLowercase.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.includeLowercase.Margin = new System.Windows.Forms.Padding(2);
             this.includeLowercase.Name = "includeLowercase";
             this.includeLowercase.Size = new System.Drawing.Size(121, 24);
             this.includeLowercase.TabIndex = 1;
@@ -160,7 +171,7 @@
             // 
             this.includeCaptial.AutoSize = true;
             this.includeCaptial.Location = new System.Drawing.Point(125, 29);
-            this.includeCaptial.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.includeCaptial.Margin = new System.Windows.Forms.Padding(2);
             this.includeCaptial.Name = "includeCaptial";
             this.includeCaptial.Size = new System.Drawing.Size(121, 24);
             this.includeCaptial.TabIndex = 1;
@@ -182,7 +193,7 @@
             // GenerateButton
             // 
             this.GenerateButton.Location = new System.Drawing.Point(138, 256);
-            this.GenerateButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GenerateButton.Margin = new System.Windows.Forms.Padding(2);
             this.GenerateButton.Name = "GenerateButton";
             this.GenerateButton.Size = new System.Drawing.Size(159, 34);
             this.GenerateButton.TabIndex = 2;
@@ -193,7 +204,7 @@
             // passwordBox
             // 
             this.passwordBox.Location = new System.Drawing.Point(11, 305);
-            this.passwordBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.passwordBox.Margin = new System.Windows.Forms.Padding(2);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.ReadOnly = true;
             this.passwordBox.Size = new System.Drawing.Size(412, 27);
@@ -202,7 +213,7 @@
             // CopyButton
             // 
             this.CopyButton.Location = new System.Drawing.Point(59, 346);
-            this.CopyButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CopyButton.Margin = new System.Windows.Forms.Padding(2);
             this.CopyButton.Name = "CopyButton";
             this.CopyButton.Size = new System.Drawing.Size(131, 34);
             this.CopyButton.TabIndex = 4;
@@ -213,7 +224,7 @@
             // aboutButton
             // 
             this.aboutButton.Location = new System.Drawing.Point(185, 401);
-            this.aboutButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.aboutButton.Margin = new System.Windows.Forms.Padding(2);
             this.aboutButton.Name = "aboutButton";
             this.aboutButton.Size = new System.Drawing.Size(109, 34);
             this.aboutButton.TabIndex = 5;
@@ -224,7 +235,7 @@
             // exitButton
             // 
             this.exitButton.Location = new System.Drawing.Point(305, 401);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(2);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(109, 34);
             this.exitButton.TabIndex = 5;
@@ -235,24 +246,13 @@
             // savePasswordButton
             // 
             this.savePasswordButton.Location = new System.Drawing.Point(214, 346);
-            this.savePasswordButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.savePasswordButton.Margin = new System.Windows.Forms.Padding(2);
             this.savePasswordButton.Name = "savePasswordButton";
             this.savePasswordButton.Size = new System.Drawing.Size(154, 34);
             this.savePasswordButton.TabIndex = 6;
             this.savePasswordButton.Text = "保存密码到文件(&S)";
             this.savePasswordButton.UseVisualStyleBackColor = true;
             this.savePasswordButton.Click += new System.EventHandler(this.savePasswordButton_Click);
-            // 
-            // generateGUID
-            // 
-            this.generateGUID.AutoSize = true;
-            this.generateGUID.Location = new System.Drawing.Point(15, 193);
-            this.generateGUID.Name = "generateGUID";
-            this.generateGUID.Size = new System.Drawing.Size(98, 24);
-            this.generateGUID.TabIndex = 7;
-            this.generateGUID.Text = "生成GUID";
-            this.generateGUID.UseVisualStyleBackColor = true;
-            this.generateGUID.CheckedChanged += new System.EventHandler(this.generateGUID_CheckedChanged);
             // 
             // Form1
             // 

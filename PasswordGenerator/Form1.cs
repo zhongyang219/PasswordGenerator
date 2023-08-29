@@ -30,7 +30,7 @@ namespace PasswordGenerator
 
         //方法
 
-        public Form1()
+        public Form1(bool isDll = false)
         {
             InitializeComponent();
             //设置控件的初始状态（从设置中读取状态）
@@ -45,6 +45,12 @@ namespace PasswordGenerator
             generateGUID.Checked = Properties.Settings.Default.GenerateGUID;
             //初始化控件的启用或禁用状态
             SetControlEnableState();
+
+            if (isDll)
+            {
+                aboutButton.Visible = false;
+                exitButton.Visible = false;
+            }
         }
 
         //获取选项复选框的状态
@@ -232,6 +238,20 @@ namespace PasswordGenerator
         private void generateGUID_CheckedChanged(object sender, EventArgs e)
         {
             SetControlEnableState();
+        }
+
+        public void onFrameCommand(String cmd, bool isChecked)
+        {
+            if (cmd == "PasswordGeneratorAbout")
+            {
+                //弹出“关于”对话框
+                (new AboutForm()).ShowDialog();
+            }
+        }
+
+        public IntPtr GetHandle()
+        {
+            return Handle;
         }
     }
 }
