@@ -214,15 +214,7 @@ namespace PasswordGenerator
         private void onFormClosing(object sender, FormClosingEventArgs e)
         {
             //窗口关闭时保存设置
-            Properties.Settings.Default.IncludeNum = includeNums.Checked;
-            Properties.Settings.Default.IncludeCapital = includeCaptial.Checked;
-            Properties.Settings.Default.IncludeLowercase = includeLowercase.Checked;
-            Properties.Settings.Default.IncludeSpecCharator = includeSpecCharctor.Checked;
-            Properties.Settings.Default.PasswordLength = passwordLengthBox.Text;
-            Properties.Settings.Default.SpecCharacters = specCharacters.Text;
-            Properties.Settings.Default.CharTypeProbEqual = charTypeProbEqualButton.Checked;
-            Properties.Settings.Default.GenerateGUID = generateGUID.Checked;
-            Properties.Settings.Default.Save();
+            SaveConfig();
         }
 
         private void restoreDefault_Click(object sender, EventArgs e)
@@ -248,6 +240,19 @@ namespace PasswordGenerator
         public void SetPasswordLenght(int passwordLength)
         {
             passwordLengthBox.Text = passwordLength.ToString();
+        }
+
+        public void SaveConfig()
+        {
+            Properties.Settings.Default.IncludeNum = includeNums.Checked;
+            Properties.Settings.Default.IncludeCapital = includeCaptial.Checked;
+            Properties.Settings.Default.IncludeLowercase = includeLowercase.Checked;
+            Properties.Settings.Default.IncludeSpecCharator = includeSpecCharctor.Checked;
+            Properties.Settings.Default.PasswordLength = passwordLengthBox.Text;
+            Properties.Settings.Default.SpecCharacters = specCharacters.Text;
+            Properties.Settings.Default.CharTypeProbEqual = charTypeProbEqualButton.Checked;
+            Properties.Settings.Default.GenerateGUID = generateGUID.Checked;
+            Properties.Settings.Default.Save();
         }
     }
 }
